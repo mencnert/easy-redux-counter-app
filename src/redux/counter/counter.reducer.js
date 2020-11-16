@@ -1,5 +1,6 @@
 const INITIAL_STATE = {
   count: 0,
+  countChanges: 0,
 };
 
 const counterReducer = (state = INITIAL_STATE, action) => {
@@ -7,10 +8,12 @@ const counterReducer = (state = INITIAL_STATE, action) => {
     case "INCREMENT":
       return {
         count: state.count + action.payload.by,
+        countChanges: state.countChanges + 1,
       };
     case "DECREMENT":
       return {
         count: state.count - action.payload.by,
+        countChanges: state.countChanges + 1,
       };
 
     default:
